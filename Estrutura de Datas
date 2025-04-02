@@ -1,0 +1,58 @@
+ // Conversão para garantir que os valores sejam do tipo Date
+    MenorData = Date.From(List.Min(#"BASE DADOS"[COLUNA DESEJADA])),
+    MaiorData = Date.From(List.Max(#"BASE DADOS"[COLUNA DESEJADA])),
+
+    // Definição do intervalo de datas
+    DataInicio = Date.StartOfYear(MenorData),
+    DataFim = Date.EndOfYear(#date(2025, 12, 31)),
+    Dias = Duration.Days(DataFim - DataInicio) + 1,
+    ListarDatas = List.Dates(DataInicio, Dias, #duration(1,0,0,0)),
+
+    // Criação da Tabela de Calendário
+    Tabela = #table(
+        type table[
+            Data = date,
+            Ano = Int64.Type,
+            NomeMes = text,
+            MesAbre = text,
+            MesAno = text,
+            MesNum = number,
+            AnoMesINT = number,
+            InicioMes = date,
+            Trimestre = Int64.Type,
+            TrimestreAbreviado = text,
+            Bimestre = text,
+            Semestre = text,
+            Semana = Int64.Type,
+            DiaSemana = Int64.Type,
+            NomeDia = text,
+            Passado = logical,
+            AnoAtual = text,
+            MesAtual = text
+        ],
+        List.Transform(
+            ListarDatas,
+            each {
+                _,  // Data do dia
+                Date.Year(_),  // Ano
+                Text.Proper(Date.MonthName(_)),  // Nome do mês (ex: Janeiro, Fevereiro)
+                Text.Proper(Text.Start(Date.MonthName(_), 3)),  // Abreviação do mês (Jan, Fev, Mar)
+                Text.Proper(Text.Start(Date.MonthName(_), 3)) & "-" & Text.End(Text.From(Date.Year(_)), 2),  // Exemplo: "Jan-24"
+                Date.Month(_),  // Número do mês (1 a 12)
+                Date.Year(_) * 100 + Date.Month(_),  // Ano + Mês no formato YYYYMM
+                Date.StartOfMonth(_),  // Primeiro dia do mês
+                Date.QuarterOfYear(_),  // Trimestre do ano (1 a 4)
+                Text.From(Date.QuarterOfYear(_)) & "º Trim ",  // Exemplo: "1º Trim"
+                Text.From(Number.RoundUp(Date.Month(_)/2,0)) & "º Bim",  // Exemplo: "1º Bim"
+                Text.From(Number.RoundUp(Date.Month(_)/6,0)) & "º Sem",  // Exemplo: "1º Sem"
+                Date.WeekOfMonth(_),  // Semana do mês
+                Date.DayOfWeek(_),  // Número do dia da semana (0 = domingo, 6 = sábado)
+                Date.DayOfWeekName(_),  // Nome do dia da semana (ex: Segunda-feira)
+                if _ <= MaiorData then true else false,  // Indica se a data já passou (true/false)
+                if Date.IsInCurrentYear(_) then "Ano Atual" else Text.From(Date.Year(_)),  // Identifica o ano atual
+                if Date.IsInCurrentYear(_) and Date.IsInCurrentMonth(_) then "Mês Atual" else Text.Proper(Date.MonthName(_))  // Indica o mês atual
+            }
+        )
+    )
+in
+    Tabela
