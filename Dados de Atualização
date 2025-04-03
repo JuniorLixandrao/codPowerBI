@@ -1,0 +1,12 @@
+**inserir data do ultimo registro de dados na base, usando DAX**
+DATA ATUALIZAÇÃO = 
+"Base atualizada em: " & FORMAT(MAX('BASE DE DADOS'[COLUNA COM A DATA]), "dd/mm/yyyy")
+
+-----------------------
+**inserir data do ultimo registro de dados na base, usando DAX + consulta ao BD**
+
+**etapa 1: adicionar consulta como fonte de dados**
+SELECT GETDATE() [DATA]
+
+**etapa 2: adiconar formula DAX**
+Dados Atualização = "Atualizado em "&MAX('CONSULTA DE DATA'[DATA])&" com dados até "&MAX('BASE DE DADOS'[COLUNA COM A DATA])
