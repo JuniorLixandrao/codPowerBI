@@ -1,0 +1,110 @@
+[
+    {
+        "UF": "AC",
+        "ESTADOS": "ACRE"
+    },
+    {
+        "UF": "AL",
+        "ESTADOS": "ALAGOAS"
+    },
+    {
+        "UF": "AP",
+        "ESTADOS": "AMAPA"
+    },
+    {
+        "UF": "AM",
+        "ESTADOS": "AMAZONAS"
+    },
+    {
+        "UF": "BA",
+        "ESTADOS": "BAHIA"
+    },
+    {
+        "UF": "CE",
+        "ESTADOS": "CEARA"
+    },
+    {
+        "UF": "DF",
+        "ESTADOS": "DISTRITO FEDERAL"
+    },
+    {
+        "UF": "ES",
+        "ESTADOS": "ESPIRITO SANTO"
+    },
+    {
+        "UF": "GO",
+        "ESTADOS": "GOIAS"
+    },
+    {
+        "UF": "MA",
+        "ESTADOS": "MARANHAO"
+    },
+    {
+        "UF": "MT",
+        "ESTADOS": "MATO GROSSO"
+    },
+    {
+        "UF": "MS",
+        "ESTADOS": "MATO GROSSO DO SUL"
+    },
+    {
+        "UF": "MG",
+        "ESTADOS": "MINAS GERAIS"
+    },
+    {
+        "UF": "PA",
+        "ESTADOS": "PARA"
+    },
+    {
+        "UF": "PB",
+        "ESTADOS": "PARAIBA"
+    },
+    {
+        "UF": "PR",
+        "ESTADOS": "PARANA"
+    },
+    {
+        "UF": "PE",
+        "ESTADOS": "PERNAMBUCO"
+    },
+    {
+        "UF": "PI",
+        "ESTADOS": "PIAUI"
+    },
+    {
+        "UF": "RJ",
+        "ESTADOS": "RIO DE JANEIRO"
+    },
+    {
+        "UF": "RN",
+        "ESTADOS": "RIO GRANDE DO NORTE"
+    },
+    {
+        "UF": "RS",
+        "ESTADOS": "RIO GRANDE DO SUL"
+    },
+    {
+        "UF": "RO",
+        "ESTADOS": "RONDONIA"
+    },
+    {
+        "UF": "RR",
+        "ESTADOS": "RORAIMA"
+    },
+    {
+        "UF": "SC",
+        "ESTADOS": "SANTA CATARINA"
+    },
+    {
+        "UF": "SP",
+        "ESTADOS": "SAO PAULO"
+    },
+    {
+        "UF": "SE",
+        "ESTADOS": "SERGIPE"
+    },
+    {
+        "UF": "TO",
+        "ESTADOS": "TOCANTINS"
+    }
+]
