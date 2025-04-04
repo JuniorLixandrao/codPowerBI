@@ -1,4 +1,4 @@
 # codPowerBI
-Códigos usados dentro do Power BI
+Códigos usados na minha rotina
 
-Códigos que tenho usado dentro do Power BI que ajudam e facilitam a estrtuturação, modelagem e a analise de dados.
+Códigos que tenho usado dentro do Power BI/Sql e ainfs que ajudam e facilitam a estrtuturação, modelagem e a analise de dados.
